@@ -59,16 +59,6 @@ class Deployment < ApplicationRecord # rubocop:disable Style/Documentation
     aasm.states.map(&:name)
   end
 
-  # A deployment is a state machine of 5 states:
-  #  requested - Just requested and has not been processed.
-  #  completed - Attempted (successful or not) and done with.
-  #  active    - Attempted (successful or not) but still active for testing.
-  #              Applications with auto-deploy enabled will auto-deploy
-  #              further pushes to an active deployment's branch.
-  #  rejected  - This deployment was rejected and not run.
-  #  canceled  - This deployment was canceled while running
-  #
-  # Sorbet: Enable the state enum to be referenced by named constants
   REQUESTED = 0
   PREREQUISITES = 1
   ACTIVE = 2

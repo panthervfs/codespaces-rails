@@ -20,7 +20,6 @@ class Application < ApplicationRecord # rubocop:disable Style/Documentation
 
     after_all_transitions :log_status_change
 
-    # allow transition to inactive from any state
     event :inactivate do
       transitions to: :inactive, guard: proc { true }
     end

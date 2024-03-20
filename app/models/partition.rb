@@ -4,6 +4,7 @@
 class Partition < ApplicationRecord # rubocop:disable Style/Documentation
   include AASM
 
+  # comment to add git
   belongs_to :deployment, foreign_key: 'deployment_id'
 
   scope :prerequisites, -> { where(prerequisite: true) }
